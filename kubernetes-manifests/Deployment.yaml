@@ -30,11 +30,11 @@ spec:
             cpu: 2
             memory: 3000Mi
         ports:
-        - containerPort: 9200
+        - containerPort: 8080
           name: api
         volumeMounts:
         - name: data
-          mountPath: /usr/share/elasticsearch/data
+          mountPath: 
       volumes:
       - name: data
         persistentVolumeClaim:
