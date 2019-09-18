@@ -16,6 +16,7 @@ RUN echo "JAVA_HOME=/usr/lib/jvm/java-7-oracle" >> /etc/default/tomcat7
 
 # Copying cert and adding to truststore
 COPY selfsigned.cer /tmp
+COPY *.war /usr/local/tomcat7/webapps/
 WORKDIR /tmp
 RUN  keytool -import -noprompt -trustcacerts -alias tomcat -file selfsigned.cer -keystore "$JAVA_HOME/jre/lib/security/cacerts" -storepass changeit
 
