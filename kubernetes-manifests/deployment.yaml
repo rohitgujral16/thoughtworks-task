@@ -34,11 +34,16 @@ spec:
           name: api
         volumeMounts:
         - name: data
-          mountPath: /var/lib/tomcat7/webapps
+          mountPath: /usr/local/tomcat7/webapps
+        - name: config
+          mountPath: /usr/local/tomcat7/conf/server.xml
       volumes:
       - name: data
         persistentVolumeClaim:
           claimName: tomcat-test
+      - name: config
+        configMap:
+          name: tomcat-test
       - name: podinfo
         downwardAPI:
           items:
